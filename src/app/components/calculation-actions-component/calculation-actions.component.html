@@ -1,0 +1,65 @@
+<div class="calc-form">
+  <div>
+    <div class="form-group">
+      <label for="firstOperand">First Operand</label>
+      <input
+          type="number"
+          class="form-control"
+          id="firstOperand"
+          max="1000"
+          [ngClass]="{
+            'invalid-input': hasError && firstOperand === null
+          }"
+          [(ngModel)]="firstOperand"
+          (input)="clearErrorMessage()">
+    </div>
+    <div class="form-group">
+      <label for="secondOperand">Second Operand</label>
+      <input
+          type="number"
+          class="form-control"
+          id="secondOperand"
+          max="1000"
+          [ngClass]="{
+            'invalid-input': hasError && (secondOperand === null || secondOpError)
+          }"
+          [(ngModel)]="secondOperand"
+          (input)="clearErrorMessage()">
+    </div>
+    <div *ngIf="hasError"
+         class="invalid-feedback">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="(noPrimeNumberMessage$ | async) as noPrimeNumberMessage"
+         class="invalid-feedback">
+      {{noPrimeNumberMessage}}
+    </div>
+  </div>
+  <hr />
+  <div>
+    <div class="form-group">
+      <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addCalcOp()">Addition</button>
+    </div>
+    <div class="form-group">
+      <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="divideCalcOp()">Division</button>
+    </div>
+    <div class="form-group">
+      <button
+          type="button"
+          class="btn btn-success"
+          (click)="moduloCalcOp()">Modulo</button>
+    </div>
+    <div class="form-group">
+      <button
+          type="button"
+          class="btn btn-warning"
+          (click)="highestPrimeCalcOp()">Highest Prime</button>
+    </div>
+  </div>
+</div>

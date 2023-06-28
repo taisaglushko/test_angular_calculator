@@ -1,0 +1,9 @@
+.btn {
+  width: 130px;
+}
+.invalid-feedback {
+  display: block;
+}
+input.invalid-input {
+  border-color: #dc3545;
+}

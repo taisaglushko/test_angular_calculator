@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Operation</th>
+      <th scope="col">Result</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="results$ | async as results">
+    <tr
+      *ngFor="let result of results;">
+      <td>{{result.name}}</td>
+      <td>{{result.result}}</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
