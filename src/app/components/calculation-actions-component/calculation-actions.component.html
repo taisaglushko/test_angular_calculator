@@ -6,7 +6,6 @@
           type="number"
           class="form-control"
           id="firstOperand"
-          max="1000"
           [ngClass]="{
             'invalid-input': hasError && firstOperand === null
           }"
@@ -19,7 +18,6 @@
           type="number"
           class="form-control"
           id="secondOperand"
-          max="1000"
           [ngClass]="{
             'invalid-input': hasError && (secondOperand === null || secondOpError)
           }"
@@ -33,6 +31,12 @@
     <div *ngIf="(noPrimeNumberMessage$ | async) as noPrimeNumberMessage"
          class="invalid-feedback">
       {{noPrimeNumberMessage}}
+    </div>
+    <div class="form-group text-right">
+      <button
+          type="button"
+          class="btn btn-danger"
+          (click)="clearInputFields()">Clear inputs</button>
     </div>
   </div>
   <hr />

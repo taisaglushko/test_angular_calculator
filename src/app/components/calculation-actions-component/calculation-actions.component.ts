@@ -72,6 +72,15 @@ export class CalculationActionsComponent {
   }
 
   /**
+   * Clears input fields values.
+   */
+  clearInputFields() {
+    this.firstOperand = 0;
+    this.secondOperand = 0;
+    this.clearErrorMessage();
+  }
+
+  /**
    * Performs the addition calculation operation.
    */
   addCalcOp() {

@@ -68,7 +68,7 @@ export class CalculationService {
       result: curResult
     }
     this.results.push(currentResult);
-    this.resultsChanged$.next(this.results.slice());
+    this.resultsChanged$.next(this.results.slice().reverse());
   }
 
   /**

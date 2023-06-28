@@ -36,6 +36,36 @@ describe('CalculationActionsComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should set firstOperand and secondOperand to 0', () => {
+    component.firstOperand = 10;
+    component.secondOperand = 5;
+
+    component.clearInputFields();
+
+    expect(component.firstOperand).toBe(0);
+    expect(component.secondOperand).toBe(0);
+  });
+
+  it('should call clearErrorMessage', () => {
+    spyOn(component, 'clearErrorMessage');
+
+    component.clearInputFields();
+
+    expect(component.clearErrorMessage).toHaveBeenCalled();
+  });
+
+  it('should reset hasError, secondOpError, and errorMessage', () => {
+    component.hasError = true;
+    component.secondOpError = true;
+    component.errorMessage = 'Some error message';
+
+    component.clearInputFields();
+
+    expect(component.hasError).toBe(false);
+    expect(component.secondOpError).toBe(false);
+    expect(component.errorMessage).toBe('');
+  });
+
   it('should return true when inputs are valid', () => {
     component.firstOperand = 5;
     component.secondOperand = 10;
